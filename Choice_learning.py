@@ -7,7 +7,8 @@
 
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import matplotlib.pyplot as plt
 
 def zipf(VN, n, a=1):
@@ -103,7 +104,8 @@ for _ in range(cache_size):
 max_list.sort()
     
 plt.plot(t,train_hit,'r')
-plt.savefig("")
+plt.savefig("Choice_learning_1")
+plt.clf()
 print('Final caching list :', max_list)
 print('Test hit rate :', test_r)
 
@@ -126,7 +128,6 @@ cache_size = 3
 
 
 import numpy as np
-import tensorflow as tf
 import matplotlib.pyplot as plt
 
 def zipf(VN, N, P, n, a=1):
@@ -233,7 +234,7 @@ for _ in range(M):
         train_hit_M += np.array(train_hit)
 
 plt.plot(t,train_hit_M / M,'r')
-plt.savefig("")
+plt.savefig("Choice_learning_2")
 
 
 # # FIFO
@@ -242,7 +243,6 @@ plt.savefig("")
 
 
 import numpy as np
-import tensorflow as tf
 import matplotlib.pyplot as plt
 
 def make_list(n):
@@ -324,7 +324,7 @@ for _ in range(M):
     FIFO_hit_M += np.array(FIFO_hit)
 
 plt.plot(t,FIFO_hit_M / M,'b')
-plt.savefig("")
+plt.savefig("Choice_learning_3")
 
 
 # # LFU
@@ -389,7 +389,7 @@ for _ in range(M):
     LFU_hit_M += np.array(LFU_hit)
         
 plt.plot(t,LFU_hit_M / M,'k')
-plt.savefig("")
+plt.savefig("Choice_learning_4")
 
 
 # # LRU
@@ -455,7 +455,7 @@ for _ in range(M):
     LRU_hit_M += np.array(LRU_hit)
 
 plt.plot(t,LRU_hit_M / M,'g')
-plt.savefig("")
+plt.savefig("Choice_learning_5")
 
 
 # In[18]:
@@ -466,7 +466,7 @@ plt.plot(t,FIFO_hit_M / M,'blue')
 plt.plot(t,LFU_hit_M / M,'black')
 plt.plot(t,LRU_hit_M / M,'green')
 plt.legend(['RL', 'FIFO', 'LFU', 'LRU'])
-plt.savefig("")
+plt.savefig("Choice_learning_6")
 
 
 # In[ ]:

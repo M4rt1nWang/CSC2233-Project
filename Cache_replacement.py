@@ -280,7 +280,7 @@ plt.plot(t,FIFO_connection,'b')
 plt.plot(t,LFU_connection,'g')
 plt.plot(t,LRU_connection,'r')
 plt.legend(['FIFO', 'LFU', 'LRU'])
-plt.savefig("")
+plt.savefig("Cache_replacement")
 
 print('FIFO Connection :',FIFO_connection[N-1])
 print('LFU Connection :',LFU_connection[N-1])

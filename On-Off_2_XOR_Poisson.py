@@ -526,7 +526,9 @@ plt.savefig("On-Off_2_XOR_Poisson_2")
 # In[9]:
 
 
-RL_connection = []
+RL1_connection = []
+RL2_connection = []
+RL3_connection = []
 FIFO_connection = []
 LFU_connection = []
 LRU_connection = []
@@ -534,16 +536,20 @@ LRU_connection = []
 number_of_videos = [i*100 for i in range(1,6)]
 
 for num in number_of_videos:
-    RL_connection.append(RL_Caching(M, N, num_of_video, num, cache_size, zipf_param)[N-1])
+    RL1_connection.append(RL_Caching(M, N, num_of_video, num, cache_size, zipf_param, 'FIFO')[N-1])
+    RL2_connection.append(RL_Caching(M, N, num_of_video, num, cache_size, zipf_param, 'LFU')[N-1])
+    RL3_connection.append(RL_Caching(M, N, num_of_video, num, cache_size, zipf_param, 'LRU')[N-1])
     FIFO_connection.append(FIFO_Caching(M, N, num_of_video, num, cache_size, zipf_param)[N-1])
     LFU_connection.append(LFU_Caching(M, N, num_of_video, num, cache_size, zipf_param)[N-1])
     LRU_connection.append(LRU_Caching(M, N, num_of_video, num, cache_size, zipf_param)[N-1])
 
-plt.plot(number_of_videos, RL_connection,'red')
-plt.plot(number_of_videos, FIFO_connection,'blue')
-plt.plot(number_of_videos, LFU_connection,'black')
-plt.plot(number_of_videos, LRU_connection,'green')
-plt.legend(['RL', 'FIFO', 'LFU', 'LRU'])
+plt.plot(number_of_clients, RL1_connection,'magenta')
+plt.plot(number_of_clients, RL2_connection,'r--')
+plt.plot(number_of_clients, RL3_connection,'r')
+plt.plot(number_of_clients, FIFO_connection,'blue')
+plt.plot(number_of_clients, LFU_connection,'black')
+plt.plot(number_of_clients, LRU_connection,'green')
+plt.legend(['RL + FIFO', 'RL + LFU', 'RL + LRU', 'FIFO', 'LFU', 'LRU'])
 plt.savefig("On-Off_2_XOR_Poisson_3")
 
 

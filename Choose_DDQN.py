@@ -7,7 +7,8 @@
 
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import matplotlib.pyplot as plt
 from collections import deque
 from Grouping import *
@@ -564,7 +565,8 @@ plt.plot(t,LRU_connection,'r')
 plt.plot(t,LRU_Xconnection,'r--')
 plt.plot(t,RL_connection,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_1")
+plt.clf()
 
 print(FIFO_connection[N-1])
 print(FIFO_Xconnection[N-1])
@@ -588,7 +590,8 @@ plt.plot(t,LRU_test,'r')
 plt.plot(t,LRU_Xtest,'r--')
 plt.plot(t,RL_test,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_2")
+plt.clf()
 
 print(FIFO_test[test_N-1])
 print(FIFO_Xtest[test_N-1])
@@ -644,7 +647,8 @@ plt.plot(rho_list,LRU_connection_list,'r')
 plt.plot(rho_list,LRU_Xconnection_list,'r--')
 plt.plot(rho_list,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_3")
+plt.clf()
 
 
 # In[9]:
@@ -658,7 +662,8 @@ plt.plot(rho_list,LRU_test_list,'r')
 plt.plot(rho_list,LRU_Xtest_list,'r--')
 plt.plot(rho_list,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_4")
+plt.clf()
 
 
 # # by Cache Size
@@ -712,7 +717,8 @@ plt.plot(cache_sizes,LRU_connection_list,'r')
 plt.plot(cache_sizes,LRU_Xconnection_list,'r--')
 plt.plot(cache_sizes,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_5")
+plt.clf()
 
 
 # In[12]:
@@ -726,7 +732,8 @@ plt.plot(cache_sizes,LRU_test_list,'r')
 plt.plot(cache_sizes,LRU_Xtest_list,'r--')
 plt.plot(cache_sizes,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_6")
+plt.clf()
 
 
 # # by Number of Clients
@@ -774,7 +781,8 @@ plt.plot(number_of_clients,LRU_connection_list,'r')
 plt.plot(number_of_clients,LRU_Xconnection_list,'r--')
 plt.plot(number_of_clients,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_7")
+plt.clf()
 
 
 # In[14]:
@@ -788,7 +796,8 @@ plt.plot(number_of_clients,LRU_test_list,'r')
 plt.plot(number_of_clients,LRU_Xtest_list,'r--')
 plt.plot(number_of_clients,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_8")
+plt.clf()
 
 
 # # by Number of Videos
@@ -836,7 +845,8 @@ plt.plot(number_of_videos,LRU_connection_list,'r')
 plt.plot(number_of_videos,LRU_Xconnection_list,'r--')
 plt.plot(number_of_videos,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_9")
+plt.clf()
 
 
 # In[16]:
@@ -850,7 +860,8 @@ plt.plot(number_of_videos,LRU_test_list,'r')
 plt.plot(number_of_videos,LRU_Xtest_list,'r--')
 plt.plot(number_of_videos,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_10")
+plt.clf()
 
 
 # # by zipf parameter
@@ -898,7 +909,8 @@ plt.plot(zipf_parameters,LRU_connection_list,'r')
 plt.plot(zipf_parameters,LRU_Xconnection_list,'r--')
 plt.plot(zipf_parameters,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_11")
+plt.clf()
 
 
 # In[18]:
@@ -912,7 +924,8 @@ plt.plot(zipf_parameters,LRU_test_list,'r')
 plt.plot(zipf_parameters,LRU_Xtest_list,'r--')
 plt.plot(zipf_parameters,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("")
+plt.savefig("Choose_DDQN_12")
+plt.clf()
 
 
 # In[ ]:
