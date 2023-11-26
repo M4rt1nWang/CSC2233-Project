@@ -1,7 +1,7 @@
 import numpy as np
 import copy
 
-def Local(r_v_l, c_v_l): # r_v_l은 np.array, c_v_l은 list
+def Local(r_v_l, c_v_l): # r_v_l is np.array, c_v_l is list
     N = len(r_v_l)
     c_n = [[i] for i in range(N)] # Client number
     rq_list = copy.deepcopy(r_v_l)

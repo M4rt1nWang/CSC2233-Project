@@ -437,7 +437,8 @@ plt.plot(t,RL2_connection,'g--')
 plt.plot(t,LRU_connection,'r')
 plt.plot(t,RL3_connection,'r--')
 plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("On-Off_2_XOR_1")
+plt.savefig("On_Off_2_XOR_1")
+plt.clf()
 
 print('FIFO Connection :',FIFO_connection[N-1])
 print('RL + FIFO Connection :',RL1_connection[N-1])
@@ -476,7 +477,8 @@ plt.plot(number_of_clients, FIFO_connection,'blue')
 plt.plot(number_of_clients, LFU_connection,'black')
 plt.plot(number_of_clients, LRU_connection,'green')
 plt.legend(['RL + FIFO', 'RL + LFU', 'RL + LRU', 'FIFO', 'LFU', 'LRU'])
-plt.savefig("Off_2_XOR_2")
+plt.savefig("On_Off_2_XOR_2")
+plt.clf()
 
 
 # # by Number of Videos
@@ -508,7 +510,8 @@ plt.plot(number_of_videos, FIFO_connection,'blue')
 plt.plot(number_of_videos, LFU_connection,'black')
 plt.plot(number_of_videos, LRU_connection,'green')
 plt.legend(['RL + FIFO', 'RL + LFU', 'RL + LRU', 'FIFO', 'LFU', 'LRU'])
-plt.savefig("Off_2_XOR_3")
+plt.savefig("On_Off_2_XOR_3")
+plt.clf()
 
 
 # # by zipf parameter
@@ -540,7 +543,8 @@ plt.plot(zipf_parameters, FIFO_connection,'blue')
 plt.plot(zipf_parameters, LFU_connection,'black')
 plt.plot(zipf_parameters, LRU_connection,'green')
 plt.legend(['RL + FIFO', 'RL + LFU', 'RL + LRU', 'FIFO', 'LFU', 'LRU'])
-plt.savefig("Off_2_XOR_4")
+plt.savefig("On_Off_2_XOR_4")
+plt.clf()
 
 
 # In[ ]:

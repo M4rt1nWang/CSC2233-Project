@@ -13,8 +13,6 @@ import matplotlib.pyplot as plt
 from Grouping import *
 import warnings
 warnings.filterwarnings(action='ignore')
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 # # RL (DQN)
 
 # In[2]:
@@ -544,6 +542,7 @@ plt.plot(t,LRU_Xconnection,'r--')
 plt.plot(t,RL_connection,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_1")
+plt.clf()
 
 print(FIFO_connection[N-1])
 print(FIFO_Xconnection[N-1])
@@ -568,6 +567,7 @@ plt.plot(t,LRU_Xtest,'r--')
 plt.plot(t,RL_test,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_2")
+plt.clf()
 
 print(FIFO_test[test_N-1])
 print(FIFO_Xtest[test_N-1])
@@ -624,6 +624,7 @@ plt.plot(rho_list,LRU_Xconnection_list,'r--')
 plt.plot(rho_list,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_3")
+plt.clf()
 
 
 # In[9]:
@@ -638,6 +639,7 @@ plt.plot(rho_list,LRU_Xtest_list,'r--')
 plt.plot(rho_list,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_4")
+plt.clf()
 
 
 # # by Cache Size
@@ -692,6 +694,7 @@ plt.plot(cache_sizes,LRU_Xconnection_list,'r--')
 plt.plot(cache_sizes,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_5")
+plt.clf()
 
 
 # In[12]:
@@ -706,6 +709,7 @@ plt.plot(cache_sizes,LRU_Xtest_list,'r--')
 plt.plot(cache_sizes,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_6")
+plt.clf()
 
 
 # # by Number of Clients
@@ -754,6 +758,7 @@ plt.plot(number_of_clients,LRU_Xconnection_list,'r--')
 plt.plot(number_of_clients,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_7")
+plt.clf()
 
 
 # In[14]:
@@ -768,6 +773,7 @@ plt.plot(number_of_clients,LRU_Xtest_list,'r--')
 plt.plot(number_of_clients,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_8")
+plt.clf()
 
 
 # # by Number of Videos
@@ -816,6 +822,7 @@ plt.plot(number_of_videos,LRU_Xconnection_list,'r--')
 plt.plot(number_of_videos,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_9")
+plt.clf()
 
 
 # In[16]:
@@ -830,6 +837,7 @@ plt.plot(number_of_videos,LRU_Xtest_list,'r--')
 plt.plot(number_of_videos,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_10")
+plt.clf()
 
 
 # # by zipf parameter
@@ -878,6 +886,7 @@ plt.plot(zipf_parameters,LRU_Xconnection_list,'r--')
 plt.plot(zipf_parameters,RL_connection_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_11")
+plt.clf()
 
 
 # In[18]:
@@ -892,6 +901,7 @@ plt.plot(zipf_parameters,LRU_Xtest_list,'r--')
 plt.plot(zipf_parameters,RL_test_list,'c')
 plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
 plt.savefig("A2C_choice_12")
+plt.clf()
 
 
 # In[ ]:

@@ -5,15 +5,14 @@
 
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from tensorflow.keras.layers import Dense
 from collections import deque
 import matplotlib.pyplot as plt
 from Grouping import *
 import warnings
 warnings.filterwarnings(action='ignore')
-
-
 # # RL (DQN)
 
 # In[2]:
