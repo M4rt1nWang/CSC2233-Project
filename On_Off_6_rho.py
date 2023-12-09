@@ -516,47 +516,47 @@ def LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param):
 
 
 M = 1
-N = 10000
+N = 1000
 test_N = 300
-num_of_video = 300
-num_of_client = 30
+num_of_video = 150
+num_of_client = 15
 cache_size = 10
 zipf_param = 1.2
-ch_interval = 1000
+ch_interval = 100
 rho = 0.5
 
-RL1_connection, RL1_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'FIFO')
-RL2_connection, RL2_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LFU')
-RL3_connection, RL3_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LRU')
-FIFO_connection, FIFO_test = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
-LFU_connection, LFU_test = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
-LRU_connection, LRU_test = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+# RL1_connection, RL1_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'FIFO')
+# RL2_connection, RL2_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LFU')
+# RL3_connection, RL3_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LRU')
+# FIFO_connection, FIFO_test = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+# LFU_connection, LFU_test = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+# LRU_connection, LRU_test = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
 
-t = [n for n in range(N)]
+# t = [n for n in range(N)]
 
-plt.plot(t,FIFO_connection,'b')
-plt.plot(t,RL1_connection,'b--')
-plt.plot(t,LFU_connection,'g')
-plt.plot(t,RL2_connection,'g--')
-plt.plot(t,LRU_connection,'r')
-plt.plot(t,RL3_connection,'r--')
-plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
-
-
-# In[7]:
+# plt.plot(t,FIFO_connection,'b')
+# plt.plot(t,RL1_connection,'b--')
+# plt.plot(t,LFU_connection,'g')
+# plt.plot(t,RL2_connection,'g--')
+# plt.plot(t,LRU_connection,'r')
+# plt.plot(t,RL3_connection,'r--')
+# plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
+# plt.savefig("")
 
 
-t = [n for n in range(test_N)]
+# # In[7]:
 
-plt.plot(t,FIFO_test,'b')
-plt.plot(t,RL1_test,'b--')
-plt.plot(t,LFU_test,'g')
-plt.plot(t,RL2_test,'g--')
-plt.plot(t,LRU_test,'r')
-plt.plot(t,RL3_test,'r--')
-plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
+
+# t = [n for n in range(test_N)]
+
+# plt.plot(t,FIFO_test,'b')
+# plt.plot(t,RL1_test,'b--')
+# plt.plot(t,LFU_test,'g')
+# plt.plot(t,RL2_test,'g--')
+# plt.plot(t,LRU_test,'r')
+# plt.plot(t,RL3_test,'r--')
+# plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
+# plt.savefig("")
 
 
 # # by rho
@@ -564,58 +564,58 @@ plt.savefig("")
 # In[8]:
 
 
-RL1_connection_list, RL1_test_list = [], []
-RL2_connection_list, RL2_test_list = [], []
-RL3_connection_list, RL3_test_list = [], []
-FIFO_connection_list, FIFO_test_list = [], []
-LFU_connection_list, LFU_test_list = [], []
-LRU_connection_list, LRU_test_list = [], []
+# RL1_connection_list, RL1_test_list = [], []
+# RL2_connection_list, RL2_test_list = [], []
+# RL3_connection_list, RL3_test_list = [], []
+# FIFO_connection_list, FIFO_test_list = [], []
+# LFU_connection_list, LFU_test_list = [], []
+# LRU_connection_list, LRU_test_list = [], []
 
-rho_list = [i*0.2 for i in range(6)]
+# rho_list = [i*0.2 for i in range(6)]
 
-for rho in rho_list:
-    RL1_connection, RL1_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'FIFO')
-    RL2_connection, RL2_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LFU')
-    RL3_connection, RL3_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LRU')
-    FIFO_connection, FIFO_test = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
-    LFU_connection, LFU_test = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
-    LRU_connection, LRU_test = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+# for rho in rho_list:
+#     RL1_connection, RL1_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'FIFO')
+#     RL2_connection, RL2_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LFU')
+#     RL3_connection, RL3_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LRU')
+#     FIFO_connection, FIFO_test = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+#     LFU_connection, LFU_test = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+#     LRU_connection, LRU_test = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
     
-    RL1_connection_list.append(RL1_connection[N-1])
-    RL2_connection_list.append(RL2_connection[N-1])
-    RL3_connection_list.append(RL3_connection[N-1])
-    FIFO_connection_list.append(FIFO_connection[N-1])
-    LFU_connection_list.append(LFU_connection[N-1])
-    LRU_connection_list.append(LRU_connection[N-1])
+#     RL1_connection_list.append(RL1_connection[N-1])
+#     RL2_connection_list.append(RL2_connection[N-1])
+#     RL3_connection_list.append(RL3_connection[N-1])
+#     FIFO_connection_list.append(FIFO_connection[N-1])
+#     LFU_connection_list.append(LFU_connection[N-1])
+#     LRU_connection_list.append(LRU_connection[N-1])
     
-    RL1_test_list.append(RL1_test[test_N-1])
-    RL2_test_list.append(RL2_test[test_N-1])
-    RL3_test_list.append(RL3_test[test_N-1])
-    FIFO_test_list.append(FIFO_test[test_N-1])
-    LFU_test_list.append(LFU_test[test_N-1])
-    LRU_test_list.append(LRU_test[test_N-1])
+#     RL1_test_list.append(RL1_test[test_N-1])
+#     RL2_test_list.append(RL2_test[test_N-1])
+#     RL3_test_list.append(RL3_test[test_N-1])
+#     FIFO_test_list.append(FIFO_test[test_N-1])
+#     LFU_test_list.append(LFU_test[test_N-1])
+#     LRU_test_list.append(LRU_test[test_N-1])
 
-plt.plot(rho_list,FIFO_connection_list,'b')
-plt.plot(rho_list,RL1_connection_list,'b--')
-plt.plot(rho_list,LFU_connection_list,'g')
-plt.plot(rho_list,RL2_connection_list,'g--')
-plt.plot(rho_list,LRU_connection_list,'r')
-plt.plot(rho_list,RL3_connection_list,'r--')
-plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
-
-
-# In[9]:
+# plt.plot(rho_list,FIFO_connection_list,'b')
+# plt.plot(rho_list,RL1_connection_list,'b--')
+# plt.plot(rho_list,LFU_connection_list,'g')
+# plt.plot(rho_list,RL2_connection_list,'g--')
+# plt.plot(rho_list,LRU_connection_list,'r')
+# plt.plot(rho_list,RL3_connection_list,'r--')
+# plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
+# plt.savefig("")
 
 
-plt.plot(rho_list,FIFO_test_list,'b')
-plt.plot(rho_list,RL1_test_list,'b--')
-plt.plot(rho_list,LFU_test_list,'g')
-plt.plot(rho_list,RL2_test_list,'g--')
-plt.plot(rho_list,LRU_test_list,'r')
-plt.plot(rho_list,RL3_test_list,'r--')
-plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
+# # In[9]:
+
+
+# plt.plot(rho_list,FIFO_test_list,'b')
+# plt.plot(rho_list,RL1_test_list,'b--')
+# plt.plot(rho_list,LFU_test_list,'g')
+# plt.plot(rho_list,RL2_test_list,'g--')
+# plt.plot(rho_list,LRU_test_list,'r')
+# plt.plot(rho_list,RL3_test_list,'r--')
+# plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
+# plt.savefig("")
 
 
 # # by Cache Size
@@ -623,64 +623,64 @@ plt.savefig("")
 # In[10]:
 
 
-rho = 0.5
+# rho = 0.5
 
 
-# In[11]:
+# # In[11]:
 
 
-RL1_connection_list, RL1_test_list = [], []
-RL2_connection_list, RL2_test_list = [], []
-RL3_connection_list, RL3_test_list = [], []
-FIFO_connection_list, FIFO_test_list = [], []
-LFU_connection_list, LFU_test_list = [], []
-LRU_connection_list, LRU_test_list = [], []
+# RL1_connection_list, RL1_test_list = [], []
+# RL2_connection_list, RL2_test_list = [], []
+# RL3_connection_list, RL3_test_list = [], []
+# FIFO_connection_list, FIFO_test_list = [], []
+# LFU_connection_list, LFU_test_list = [], []
+# LRU_connection_list, LRU_test_list = [], []
 
-cache_sizes = [i*5 for i in range(1,5)]
+# cache_sizes = [i*5 for i in range(1,5)]
 
-for size in cache_sizes:
-    RL1_connection, RL1_test = RL_Caching(M, N, num_of_video, num_of_client, size, zipf_param, 'FIFO')
-    RL2_connection, RL2_test = RL_Caching(M, N, num_of_video, num_of_client, size, zipf_param, 'LFU')
-    RL3_connection, RL3_test = RL_Caching(M, N, num_of_video, num_of_client, size, zipf_param, 'LRU')
-    FIFO_connection, FIFO_test = FIFO_Caching(M, N, num_of_video, num_of_client, size, zipf_param)
-    LFU_connection, LFU_test = LFU_Caching(M, N, num_of_video, num_of_client, size, zipf_param)
-    LRU_connection, LRU_test = LRU_Caching(M, N, num_of_video, num_of_client, size, zipf_param)
+# for size in cache_sizes:
+#     RL1_connection, RL1_test = RL_Caching(M, N, num_of_video, num_of_client, size, zipf_param, 'FIFO')
+#     RL2_connection, RL2_test = RL_Caching(M, N, num_of_video, num_of_client, size, zipf_param, 'LFU')
+#     RL3_connection, RL3_test = RL_Caching(M, N, num_of_video, num_of_client, size, zipf_param, 'LRU')
+#     FIFO_connection, FIFO_test = FIFO_Caching(M, N, num_of_video, num_of_client, size, zipf_param)
+#     LFU_connection, LFU_test = LFU_Caching(M, N, num_of_video, num_of_client, size, zipf_param)
+#     LRU_connection, LRU_test = LRU_Caching(M, N, num_of_video, num_of_client, size, zipf_param)
     
-    RL1_connection_list.append(RL1_connection[N-1])
-    RL2_connection_list.append(RL2_connection[N-1])
-    RL3_connection_list.append(RL3_connection[N-1])
-    FIFO_connection_list.append(FIFO_connection[N-1])
-    LFU_connection_list.append(LFU_connection[N-1])
-    LRU_connection_list.append(LRU_connection[N-1])
+#     RL1_connection_list.append(RL1_connection[N-1])
+#     RL2_connection_list.append(RL2_connection[N-1])
+#     RL3_connection_list.append(RL3_connection[N-1])
+#     FIFO_connection_list.append(FIFO_connection[N-1])
+#     LFU_connection_list.append(LFU_connection[N-1])
+#     LRU_connection_list.append(LRU_connection[N-1])
     
-    RL1_test_list.append(RL1_test[test_N-1])
-    RL2_test_list.append(RL2_test[test_N-1])
-    RL3_test_list.append(RL3_test[test_N-1])
-    FIFO_test_list.append(FIFO_test[test_N-1])
-    LFU_test_list.append(LFU_test[test_N-1])
-    LRU_test_list.append(LRU_test[test_N-1])
+#     RL1_test_list.append(RL1_test[test_N-1])
+#     RL2_test_list.append(RL2_test[test_N-1])
+#     RL3_test_list.append(RL3_test[test_N-1])
+#     FIFO_test_list.append(FIFO_test[test_N-1])
+#     LFU_test_list.append(LFU_test[test_N-1])
+#     LRU_test_list.append(LRU_test[test_N-1])
 
-plt.plot(cache_sizes,FIFO_connection_list,'b')
-plt.plot(cache_sizes,RL1_connection_list,'b--')
-plt.plot(cache_sizes,LFU_connection_list,'g')
-plt.plot(cache_sizes,RL2_connection_list,'g--')
-plt.plot(cache_sizes,LRU_connection_list,'r')
-plt.plot(cache_sizes,RL3_connection_list,'r--')
-plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
-
-
-# In[12]:
+# plt.plot(cache_sizes,FIFO_connection_list,'b')
+# plt.plot(cache_sizes,RL1_connection_list,'b--')
+# plt.plot(cache_sizes,LFU_connection_list,'g')
+# plt.plot(cache_sizes,RL2_connection_list,'g--')
+# plt.plot(cache_sizes,LRU_connection_list,'r')
+# plt.plot(cache_sizes,RL3_connection_list,'r--')
+# plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
+# plt.savefig("")
 
 
-plt.plot(cache_sizes,FIFO_test_list,'b')
-plt.plot(cache_sizes,RL1_test_list,'b--')
-plt.plot(cache_sizes,LFU_test_list,'g')
-plt.plot(cache_sizes,RL2_test_list,'g--')
-plt.plot(cache_sizes,LRU_test_list,'r')
-plt.plot(cache_sizes,RL3_test_list,'r--')
-plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
+# # In[12]:
+
+
+# plt.plot(cache_sizes,FIFO_test_list,'b')
+# plt.plot(cache_sizes,RL1_test_list,'b--')
+# plt.plot(cache_sizes,LFU_test_list,'g')
+# plt.plot(cache_sizes,RL2_test_list,'g--')
+# plt.plot(cache_sizes,LRU_test_list,'r')
+# plt.plot(cache_sizes,RL3_test_list,'r--')
+# plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
+# plt.savefig("")
 
 
 # # by Number of Clients
@@ -695,7 +695,7 @@ FIFO_connection_list, FIFO_test_list = [], []
 LFU_connection_list, LFU_test_list = [], []
 LRU_connection_list, LRU_test_list = [], []
 
-number_of_clients = [i*10 for i in range(1,6)]
+number_of_clients = [i*5 for i in range(1,6)]
 
 for num in number_of_clients:
     RL1_connection, RL1_test = RL_Caching(M, N, num_of_video, num, cache_size, zipf_param, 'FIFO')
@@ -726,7 +726,8 @@ plt.plot(number_of_clients,RL2_connection_list,'g--')
 plt.plot(number_of_clients,LRU_connection_list,'r')
 plt.plot(number_of_clients,RL3_connection_list,'r--')
 plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
+plt.savefig("On_Off_6_rho_1")
+plt.clf()
 
 
 # In[14]:
@@ -739,7 +740,8 @@ plt.plot(number_of_clients,RL2_test_list,'g--')
 plt.plot(number_of_clients,LRU_test_list,'r')
 plt.plot(number_of_clients,RL3_test_list,'r--')
 plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
+plt.savefig("On_Off_6_rho_2")
+plt.clf()
 
 
 # # by Number of Videos
@@ -754,7 +756,7 @@ FIFO_connection_list, FIFO_test_list = [], []
 LFU_connection_list, LFU_test_list = [], []
 LRU_connection_list, LRU_test_list = [], []
 
-number_of_videos = [i*100 for i in range(1,6)]
+number_of_videos = [i*50 for i in range(1,6)]
 
 for num in number_of_videos:
     RL1_connection, RL1_test = RL_Caching(M, N, num, num_of_client, cache_size, zipf_param, 'FIFO')
@@ -785,7 +787,8 @@ plt.plot(number_of_videos,RL2_connection_list,'g--')
 plt.plot(number_of_videos,LRU_connection_list,'r')
 plt.plot(number_of_videos,RL3_connection_list,'r--')
 plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
+plt.savefig("On_Off_6_rho_3")
+plt.clf()
 
 
 # In[16]:
@@ -798,7 +801,8 @@ plt.plot(number_of_videos,RL2_test_list,'g--')
 plt.plot(number_of_videos,LRU_test_list,'r')
 plt.plot(number_of_videos,RL3_test_list,'r--')
 plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
+plt.savefig("On_Off_6_rho_4")
+plt.clf()
 
 
 # # by zipf parameter
@@ -806,58 +810,58 @@ plt.savefig("")
 # In[17]:
 
 
-RL1_connection_list, RL1_test_list = [], []
-RL2_connection_list, RL2_test_list = [], []
-RL3_connection_list, RL3_test_list = [], []
-FIFO_connection_list, FIFO_test_list = [], []
-LFU_connection_list, LFU_test_list = [], []
-LRU_connection_list, LRU_test_list = [], []
+# RL1_connection_list, RL1_test_list = [], []
+# RL2_connection_list, RL2_test_list = [], []
+# RL3_connection_list, RL3_test_list = [], []
+# FIFO_connection_list, FIFO_test_list = [], []
+# LFU_connection_list, LFU_test_list = [], []
+# LRU_connection_list, LRU_test_list = [], []
 
-zipf_parameters = [i*0.4 for i in range(2, 5)]
+# zipf_parameters = [i*0.4 for i in range(2, 5)]
 
-for zipf in zipf_parameters:
-    RL1_connection, RL1_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf, 'FIFO')
-    RL2_connection, RL2_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf, 'LFU')
-    RL3_connection, RL3_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf, 'LRU')
-    FIFO_connection, FIFO_test = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf)
-    LFU_connection, LFU_test = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf)
-    LRU_connection, LRU_test = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf)
+# for zipf in zipf_parameters:
+#     RL1_connection, RL1_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf, 'FIFO')
+#     RL2_connection, RL2_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf, 'LFU')
+#     RL3_connection, RL3_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf, 'LRU')
+#     FIFO_connection, FIFO_test = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf)
+#     LFU_connection, LFU_test = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf)
+#     LRU_connection, LRU_test = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf)
     
-    RL1_connection_list.append(RL1_connection[N-1])
-    RL2_connection_list.append(RL2_connection[N-1])
-    RL3_connection_list.append(RL3_connection[N-1])
-    FIFO_connection_list.append(FIFO_connection[N-1])
-    LFU_connection_list.append(LFU_connection[N-1])
-    LRU_connection_list.append(LRU_connection[N-1])
+#     RL1_connection_list.append(RL1_connection[N-1])
+#     RL2_connection_list.append(RL2_connection[N-1])
+#     RL3_connection_list.append(RL3_connection[N-1])
+#     FIFO_connection_list.append(FIFO_connection[N-1])
+#     LFU_connection_list.append(LFU_connection[N-1])
+#     LRU_connection_list.append(LRU_connection[N-1])
     
-    RL1_test_list.append(RL1_test[test_N-1])
-    RL2_test_list.append(RL2_test[test_N-1])
-    RL3_test_list.append(RL3_test[test_N-1])
-    FIFO_test_list.append(FIFO_test[test_N-1])
-    LFU_test_list.append(LFU_test[test_N-1])
-    LRU_test_list.append(LRU_test[test_N-1])
+#     RL1_test_list.append(RL1_test[test_N-1])
+#     RL2_test_list.append(RL2_test[test_N-1])
+#     RL3_test_list.append(RL3_test[test_N-1])
+#     FIFO_test_list.append(FIFO_test[test_N-1])
+#     LFU_test_list.append(LFU_test[test_N-1])
+#     LRU_test_list.append(LRU_test[test_N-1])
 
-plt.plot(zipf_parameters,FIFO_connection_list,'b')
-plt.plot(zipf_parameters,RL1_connection_list,'b--')
-plt.plot(zipf_parameters,LFU_connection_list,'g')
-plt.plot(zipf_parameters,RL2_connection_list,'g--')
-plt.plot(zipf_parameters,LRU_connection_list,'r')
-plt.plot(zipf_parameters,RL3_connection_list,'r--')
-plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
-
-
-# In[18]:
+# plt.plot(zipf_parameters,FIFO_connection_list,'b')
+# plt.plot(zipf_parameters,RL1_connection_list,'b--')
+# plt.plot(zipf_parameters,LFU_connection_list,'g')
+# plt.plot(zipf_parameters,RL2_connection_list,'g--')
+# plt.plot(zipf_parameters,LRU_connection_list,'r')
+# plt.plot(zipf_parameters,RL3_connection_list,'r--')
+# plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
+# plt.savefig("")
 
 
-plt.plot(zipf_parameters,FIFO_test_list,'b')
-plt.plot(zipf_parameters,RL1_test_list,'b--')
-plt.plot(zipf_parameters,LFU_test_list,'g')
-plt.plot(zipf_parameters,RL2_test_list,'g--')
-plt.plot(zipf_parameters,LRU_test_list,'r')
-plt.plot(zipf_parameters,RL3_test_list,'r--')
-plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
+# # In[18]:
+
+
+# plt.plot(zipf_parameters,FIFO_test_list,'b')
+# plt.plot(zipf_parameters,RL1_test_list,'b--')
+# plt.plot(zipf_parameters,LFU_test_list,'g')
+# plt.plot(zipf_parameters,RL2_test_list,'g--')
+# plt.plot(zipf_parameters,LRU_test_list,'r')
+# plt.plot(zipf_parameters,RL3_test_list,'r--')
+# plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
+# plt.savefig("")
 
 
 # In[ ]:

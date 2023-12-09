@@ -469,30 +469,30 @@ num_of_client = 20
 cache_size = 10
 zipf_param = 1
 
-RL1_connection = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'FIFO')
-RL2_connection = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LFU')
-RL3_connection = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LRU')
-FIFO_connection = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
-LFU_connection = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
-LRU_connection = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+# RL1_connection = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'FIFO')
+# RL2_connection = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LFU')
+# RL3_connection = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LRU')
+# FIFO_connection = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+# LFU_connection = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+# LRU_connection = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
 
-t = [n for n in range(N)]
+# t = [n for n in range(N)]
 
-plt.plot(t,FIFO_connection,'b')
-plt.plot(t,RL1_connection,'b--')
-plt.plot(t,LFU_connection,'g')
-plt.plot(t,RL2_connection,'g--')
-plt.plot(t,LRU_connection,'r')
-plt.plot(t,RL3_connection,'r--')
-plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
-plt.savefig("")
+# plt.plot(t,FIFO_connection,'b')
+# plt.plot(t,RL1_connection,'b--')
+# plt.plot(t,LFU_connection,'g')
+# plt.plot(t,RL2_connection,'g--')
+# plt.plot(t,LRU_connection,'r')
+# plt.plot(t,RL3_connection,'r--')
+# plt.legend(['FIFO', 'RL + FIFO', 'LFU', 'RL + LFU', 'LRU', 'RL + LRU'])
+# plt.savefig("")
 
-print('FIFO Connection :',FIFO_connection[N-1])
-print('RL + FIFO Connection :',RL1_connection[N-1])
-print('LFU Connection :',LFU_connection[N-1])
-print('RL + LFU Connection :',RL2_connection[N-1])
-print('LRU Connection :',LRU_connection[N-1])
-print('RL + LRU Connection :',RL3_connection[N-1])
+# print('FIFO Connection :',FIFO_connection[N-1])
+# print('RL + FIFO Connection :',RL1_connection[N-1])
+# print('LFU Connection :',LFU_connection[N-1])
+# print('RL + LFU Connection :',RL2_connection[N-1])
+# print('LRU Connection :',LRU_connection[N-1])
+# print('RL + LRU Connection :',RL3_connection[N-1])
 
 
 # # by Number of Clients
@@ -524,7 +524,8 @@ plt.plot(number_of_clients, FIFO_connection,'blue')
 plt.plot(number_of_clients, LFU_connection,'black')
 plt.plot(number_of_clients, LRU_connection,'green')
 plt.legend(['RL + FIFO', 'RL + LFU', 'RL + LRU', 'FIFO', 'LFU', 'LRU'])
-plt.savefig("")
+plt.savefig("On_Off_4_DQN_1")
+plt.clf()
 
 
 # # by Number of Videos
@@ -539,7 +540,7 @@ FIFO_connection = []
 LFU_connection = []
 LRU_connection = []
 
-number_of_videos = [i*100 for i in range(1,6)]
+number_of_videos = [i*50 for i in range(1,6)]
 
 for num in number_of_videos:
     RL1_connection.append(RL_Caching(M, N, num, num_of_client, cache_size, zipf_param, 'FIFO')[N-1])
@@ -556,7 +557,8 @@ plt.plot(number_of_videos, FIFO_connection,'blue')
 plt.plot(number_of_videos, LFU_connection,'black')
 plt.plot(number_of_videos, LRU_connection,'green')
 plt.legend(['RL + FIFO', 'RL + LFU', 'RL + LRU', 'FIFO', 'LFU', 'LRU'])
-plt.savefig("")
+plt.savefig("On_Off_4_DQN_2")
+plt.clf()
 
 
 # # by zipf parameter
@@ -564,31 +566,31 @@ plt.savefig("")
 # In[18]:
 
 
-RL1_connection = []
-RL2_connection = []
-RL3_connection = []
-FIFO_connection = []
-LFU_connection = []
-LRU_connection = []
+# RL1_connection = []
+# RL2_connection = []
+# RL3_connection = []
+# FIFO_connection = []
+# LFU_connection = []
+# LRU_connection = []
 
-zipf_parameters = [i*0.4 for i in range(2, 6)]
+# zipf_parameters = [i*0.4 for i in range(2, 6)]
 
-for zipf_param in zipf_parameters:
-    RL1_connection.append(RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'FIFO')[N-1])
-    RL2_connection.append(RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LFU')[N-1])
-    RL3_connection.append(RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LRU')[N-1])
-    FIFO_connection.append(FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)[N-1])
-    LFU_connection.append(LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)[N-1])
-    LRU_connection.append(LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)[N-1])
+# for zipf_param in zipf_parameters:
+#     RL1_connection.append(RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'FIFO')[N-1])
+#     RL2_connection.append(RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LFU')[N-1])
+#     RL3_connection.append(RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param, 'LRU')[N-1])
+#     FIFO_connection.append(FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)[N-1])
+#     LFU_connection.append(LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)[N-1])
+#     LRU_connection.append(LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)[N-1])
 
-plt.plot(zipf_parameters, RL1_connection,'magenta')
-plt.plot(zipf_parameters, RL2_connection,'r--')
-plt.plot(zipf_parameters, RL3_connection,'r')
-plt.plot(zipf_parameters, FIFO_connection,'blue')
-plt.plot(zipf_parameters, LFU_connection,'black')
-plt.plot(zipf_parameters, LRU_connection,'green')
-plt.legend(['RL + FIFO', 'RL + LFU', 'RL + LRU', 'FIFO', 'LFU', 'LRU'])
-plt.savefig("")
+# plt.plot(zipf_parameters, RL1_connection,'magenta')
+# plt.plot(zipf_parameters, RL2_connection,'r--')
+# plt.plot(zipf_parameters, RL3_connection,'r')
+# plt.plot(zipf_parameters, FIFO_connection,'blue')
+# plt.plot(zipf_parameters, LFU_connection,'black')
+# plt.plot(zipf_parameters, LRU_connection,'green')
+# plt.legend(['RL + FIFO', 'RL + LFU', 'RL + LRU', 'FIFO', 'LFU', 'LRU'])
+# plt.savefig("")
 
 
 # In[ ]:

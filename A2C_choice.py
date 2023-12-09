@@ -517,13 +517,13 @@ def LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param):
 
 
 M = 3
-N = 9500
+N = 1500
 test_N = 500
-num_of_video = 100
-num_of_client = 20
+num_of_video = 50
+num_of_client = 10
 cache_size = 20
 zipf_param = 1
-ch_interval = 1000
+ch_interval = 500
 rho = 0.5
 
 RL_connection, RL_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
@@ -583,71 +583,66 @@ print(RL_test[test_N-1])
 # In[8]:
 
 
-FIFO_connection_list, FIFO_test_list = [], []
-FIFO_Xconnection_list, FIFO_Xtest_list = [], []
-LFU_connection_list, LFU_test_list = [], []
-LFU_Xconnection_list, LFU_Xtest_list = [], []
-LRU_connection_list, LRU_test_list = [], []
-LRU_Xconnection_list, LRU_Xtest_list = [], []
-RL_connection_list, RL_test_list = [], []
+# FIFO_connection_list, FIFO_test_list = [], []
+# FIFO_Xconnection_list, FIFO_Xtest_list = [], []
+# LFU_connection_list, LFU_test_list = [], []
+# LFU_Xconnection_list, LFU_Xtest_list = [], []
+# LRU_connection_list, LRU_test_list = [], []
+# LRU_Xconnection_list, LRU_Xtest_list = [], []
+# RL_connection_list, RL_test_list = [], []
 
-rho_list = [i*0.2 for i in range(6)]
+# rho_list = [i*0.2 for i in range(6)]
 
-for rho in rho_list:
-    RL_connection, RL_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
-    FIFO_connection, FIFO_Xconnection, FIFO_test, FIFO_Xtest = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
-    LFU_connection, LFU_Xconnection, LFU_test, LFU_Xtest = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
-    LRU_connection, LRU_Xconnection, LRU_test, LRU_Xtest = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+# for rho in rho_list:
+#     RL_connection, RL_test = RL_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+#     FIFO_connection, FIFO_Xconnection, FIFO_test, FIFO_Xtest = FIFO_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+#     LFU_connection, LFU_Xconnection, LFU_test, LFU_Xtest = LFU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
+#     LRU_connection, LRU_Xconnection, LRU_test, LRU_Xtest = LRU_Caching(M, N, num_of_video, num_of_client, cache_size, zipf_param)
     
-    FIFO_connection_list.append(FIFO_connection[N-1])
-    FIFO_Xconnection_list.append(FIFO_Xconnection[N-1])
-    LFU_connection_list.append(LFU_connection[N-1])
-    LFU_Xconnection_list.append(LFU_Xconnection[N-1])
-    LRU_connection_list.append(LRU_connection[N-1])
-    LRU_Xconnection_list.append(LRU_Xconnection[N-1])
-    RL_connection_list.append(RL_connection[N-1])
+#     FIFO_connection_list.append(FIFO_connection[N-1])
+#     FIFO_Xconnection_list.append(FIFO_Xconnection[N-1])
+#     LFU_connection_list.append(LFU_connection[N-1])
+#     LFU_Xconnection_list.append(LFU_Xconnection[N-1])
+#     LRU_connection_list.append(LRU_connection[N-1])
+#     LRU_Xconnection_list.append(LRU_Xconnection[N-1])
+#     RL_connection_list.append(RL_connection[N-1])
     
-    FIFO_test_list.append(FIFO_test[test_N-1])
-    FIFO_Xtest_list.append(FIFO_Xtest[test_N-1])
-    LFU_test_list.append(LFU_test[test_N-1])
-    LFU_Xtest_list.append(LFU_Xtest[test_N-1])
-    LRU_test_list.append(LRU_test[test_N-1])
-    LRU_Xtest_list.append(LRU_Xtest[test_N-1])
-    RL_test_list.append(RL_test[test_N-1])
+#     FIFO_test_list.append(FIFO_test[test_N-1])
+#     FIFO_Xtest_list.append(FIFO_Xtest[test_N-1])
+#     LFU_test_list.append(LFU_test[test_N-1])
+#     LFU_Xtest_list.append(LFU_Xtest[test_N-1])
+#     LRU_test_list.append(LRU_test[test_N-1])
+#     LRU_Xtest_list.append(LRU_Xtest[test_N-1])
+#     RL_test_list.append(RL_test[test_N-1])
 
-plt.plot(rho_list,FIFO_connection_list,'b')
-plt.plot(rho_list,FIFO_Xconnection_list,'b--')
-plt.plot(rho_list,LFU_connection_list,'g')
-plt.plot(rho_list,LFU_Xconnection_list,'g--')
-plt.plot(rho_list,LRU_connection_list,'r')
-plt.plot(rho_list,LRU_Xconnection_list,'r--')
-plt.plot(rho_list,RL_connection_list,'c')
-plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("A2C_choice_3")
-plt.clf()
+# plt.plot(rho_list,FIFO_connection_list,'b')
+# plt.plot(rho_list,FIFO_Xconnection_list,'b--')
+# plt.plot(rho_list,LFU_connection_list,'g')
+# plt.plot(rho_list,LFU_Xconnection_list,'g--')
+# plt.plot(rho_list,LRU_connection_list,'r')
+# plt.plot(rho_list,LRU_Xconnection_list,'r--')
+# plt.plot(rho_list,RL_connection_list,'c')
+# plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
+# plt.savefig("A2C_choice_3")
+# plt.clf()
 
 
 # In[9]:
 
 
-plt.plot(rho_list,FIFO_test_list,'b')
-plt.plot(rho_list,FIFO_Xtest_list,'b--')
-plt.plot(rho_list,LFU_test_list,'g')
-plt.plot(rho_list,LFU_Xtest_list,'g--')
-plt.plot(rho_list,LRU_test_list,'r')
-plt.plot(rho_list,LRU_Xtest_list,'r--')
-plt.plot(rho_list,RL_test_list,'c')
-plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
-plt.savefig("A2C_choice_4")
-plt.clf()
+# plt.plot(rho_list,FIFO_test_list,'b')
+# plt.plot(rho_list,FIFO_Xtest_list,'b--')
+# plt.plot(rho_list,LFU_test_list,'g')
+# plt.plot(rho_list,LFU_Xtest_list,'g--')
+# plt.plot(rho_list,LRU_test_list,'r')
+# plt.plot(rho_list,LRU_Xtest_list,'r--')
+# plt.plot(rho_list,RL_test_list,'c')
+# plt.legend(['FIFO', 'FIFO (XOR)', 'LFU', 'LFU (XOR)', 'LRU', 'LRU (XOR)', 'LRU (XOR + RL)'])
+# plt.savefig("A2C_choice_4")
+# plt.clf()
 
 
 # # by Cache Size
-
-# In[10]:
-
-
-rho = 0.5
 
 
 # In[11]:
@@ -725,7 +720,7 @@ LRU_connection_list, LRU_test_list = [], []
 LRU_Xconnection_list, LRU_Xtest_list = [], []
 RL_connection_list, RL_test_list = [], []
 
-number_of_clients = [i*10 for i in range(1,6)]
+number_of_clients = [i*5 for i in range(1,6)]
 
 for num in number_of_clients:
     RL_connection, RL_test = RL_Caching(M, N, num_of_video, num, size, zipf_param)
@@ -789,7 +784,7 @@ LRU_connection_list, LRU_test_list = [], []
 LRU_Xconnection_list, LRU_Xtest_list = [], []
 RL_connection_list, RL_test_list = [], []
 
-number_of_videos = [i*100 for i in range(1,6)]
+number_of_videos = [i*50 for i in range(1,6)]
 
 for num in number_of_videos:
     RL_connection, RL_test = RL_Caching(M, N, num, num_of_client, size, zipf_param)
